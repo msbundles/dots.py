@@ -42,7 +42,8 @@ def randcol():
 def q(timee):
   time.sleep(timee)
   browser.quit()
-def multicsquare():
+
+def multicolorsquare():
   dist(2, "w")
   randcol()
   up(10)
@@ -52,5 +53,5 @@ def multicsquare():
   down(10)
   randcol()
   left(10)
-  q(5)
-multicsquare()
+
+multicolorsquare()
