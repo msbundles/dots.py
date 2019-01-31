@@ -8,7 +8,9 @@ type(browser)
 browser.get('https://msbundles.github.io/Bundles-Personal-Programming-Betterment/p5/1-Dots/')
 canvas = browser.find_element_by_tag_name('body')
 type(canvas)
+keyl = [Keys.UP, Keys.DOWN, Keys.LEFT, Keys.RIGHT]
 canvas.click()
+#Base functions
 def up (iteration):
   for iteration in range(1,iteration):
     time.sleep(0.1)
@@ -34,7 +36,7 @@ def dist(iteration,dir):
     time.sleep(0.1)
     canvas.send_keys(dir)
     time.sleep(0.1)
-def randcol():
+def randcolor():
   for x in range(random.randrange(1, 4)):
     time.sleep(0.1)
     canvas.send_keys(2)
@@ -42,16 +44,26 @@ def randcol():
 def q(timee):
   time.sleep(timee)
   browser.quit()
+#end of base functions
 
+#main action functions
+def randomdir(iteration1, iteration2):
+  for iteration1 in range(1, iteration1):
+    for iteration2 in range(1, iteration2):
+      randnum = random.randint(0,3)
+      time.sleep(0.1)
+      canvas.send_keys(keyl[randnum])
+      time.sleep(0.1)
 def multicolorsquare():
   dist(2, "w")
-  randcol()
+  randcolor()
   up(10)
-  randcol()
+  randcolor()
   right(10)
-  randcol()
+  randcolor()
   down(10)
-  randcol()
+  randcolor()
   left(10)
+#end of main action functions
 
-multicolorsquare()
+randomdir(200,300)
