@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
 import random
-import pyautogui
+#import pyautogui
 browser = webdriver.Firefox()
 type(browser)
 browser.get('https://msbundles.github.io/Bundles-Personal-Programming-Betterment/p5/1-Dots/')
