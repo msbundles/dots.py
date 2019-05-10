@@ -85,8 +85,3 @@ if sys.argv[1] == "mcs":
 elif sys.argv[1] == "rand":
   in2 = int(sys.argv[2])
   randdir(in2)
-else:
-  print("Pass arguments")
-  browser.quit()
-  time.sleep(2)
-  exit()
