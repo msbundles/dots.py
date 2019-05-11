@@ -11,7 +11,6 @@ canvas = browser.find_element_by_tag_name('body')
 type(canvas)
 keyl = [Keys.UP, Keys.DOWN, Keys.LEFT, Keys.RIGHT]
 
-
 #Base functions
 def up (iteration):
   for iteration in range(1,iteration):
@@ -55,7 +54,7 @@ def q(timee):
 #end of base functions
 
 #main action functions
-def randdir(iteration,):
+def randdir(iteration):
   canvas.click()
   for iteration in range(1, iteration):
     random.shuffle(keyl)
@@ -74,6 +73,12 @@ def mcs(u,d,l,r,w):
   down(d)
   randcolor()
   left(l)
+def diag(iteration,w):
+  canvas.click()
+  dist(w, "w")
+  for iteration in range(1, iteration):
+    up(1)
+    left(1)
 #end of main action functions
 if sys.argv[1] == "mcs":
   in2 = int(sys.argv[2])
@@ -85,3 +90,7 @@ if sys.argv[1] == "mcs":
 elif sys.argv[1] == "rand":
   in2 = int(sys.argv[2])
   randdir(in2)
+elif sys.argv[1] == "diag":
+  in2 = int(sys.argv[2])
+  in3 = int(sys.argv[3])
+  diag(in2,in3)
