@@ -43,7 +43,7 @@ def dist(iteration,dir):
     time.sleep(0.1)
 
 def randcolor():
-  for x in range(random.randrange(1, 4)):
+  for i in range(random.randrange(1, 4)):
     time.sleep(0.1)
     canvas.send_keys(2)
     time.sleep(0.1)
