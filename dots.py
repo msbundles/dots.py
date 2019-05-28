@@ -80,6 +80,7 @@ def diag(iteration,w):
     up(1)
     left(1)
 #end of main action functions
+
 if sys.argv[1] == "mcs":
   in2 = int(sys.argv[2])
   in3 = int(sys.argv[3])
