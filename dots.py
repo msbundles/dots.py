@@ -6,7 +6,8 @@ import sys
 #import pyautogui
 browser = webdriver.Firefox()
 type(browser)
-browser.get('https://msbundles.github.io/Bundles-Personal-Programming-Betterment/p5/1-Dots/')
+browser.get(
+    'https://msbundles.github.io/Bundles-Personal-Programming-Betterment/p5/1-Dots/')
 canvas = browser.find_element_by_tag_name('body')
 type(canvas)
 keyl = [Keys.UP, Keys.DOWN, Keys.LEFT, Keys.RIGHT]
@@ -14,50 +15,64 @@ keyl = [Keys.UP, Keys.DOWN, Keys.LEFT, Keys.RIGHT]
 # Base functions
 
 
-def up(iteration):
-    for iteration in range(1, iteration):
-        time.sleep(0.1)
+def up(it):
+    print("up")
+    for it in range(1, it):
+        time.sleep(0.2)
         canvas.send_keys(Keys.UP)
-        time.sleep(0.1)
+        time.sleep(0.2)
 
 
-def down(iteration):
-    for iteration in range(1, iteration):
-        time.sleep(0.1)
+def upone():
+    time.sleep(0.2)
+    canvas.send_keys(Keys.UP)
+    time.sleep(0.2)
+
+
+def down(it):
+    for it in range(1, it):
+        time.sleep(0.2)
         canvas.send_keys(Keys.DOWN)
-        time.sleep(0.1)
+        time.sleep(0.2)
 
 
-def left(iteration):
-    for iteration in range(1, iteration):
-        time.sleep(0.1)
+def left(it):
+    print("left")
+    for it in range(1, it):
+        time.sleep(0.2)
         canvas.send_keys(Keys.LEFT)
-        time.sleep(0.1)
+        time.sleep(0.2)
 
 
-def right(iteration):
-    for iteration in range(1, iteration):
-        time.sleep(0.1)
+def leftone():
+    time.sleep(0.2)
+    canvas.send_keys(Keys.LEFT)
+    time.sleep(0.2)
+
+
+def right(it):
+    for it in range(1, it):
+        time.sleep(0.2)
         canvas.send_keys(Keys.RIGHT)
-        time.sleep(0.1)
+        time.sleep(0.2)
 
 
-def space(iteration, dir):
-    for iteration in range(1, iteration):
-        time.sleep(0.1)
+def space(it, dir):
+    for it in range(1, it):
+        time.sleep(0.2)
         canvas.send_keys(dir)
-        time.sleep(0.1)
+        time.sleep(0.2)
 
 
 def randcolor():
     for _ in range(random.randrange(1, 4)):
-        time.sleep(0.1)
+        time.sleep(0.2)
         canvas.send_keys(2)
-        time.sleep(0.1)
+        time.sleep(0.2)
 
 
-def q(timee):
-    time.sleep(timee)
+def q(tim):
+    time.sleep(tim)
     browser.quit()
 # end of base functions
 
@@ -69,11 +84,13 @@ def randdir(iteration):
     for iteration in range(1, iteration):
         random.shuffle(keyl)
         randnum = random.randint(0, 3)
-        time.sleep(0.1)
+        time.sleep(0.2)
         canvas.send_keys(keyl[randnum])
-        time.sleep(0.1)
+        time.sleep(0.2)
 
-#Multi colored square function
+# Multi colored square function
+
+
 def mcs(u, d, l, r, w):
     canvas.click()
     space(w, "w")
@@ -91,8 +108,10 @@ def diag(iteration, w):
     canvas.click()
     space(w, "w")
     for iteration in range(1, iteration):
-        up(1)
-        left(1)
+        upone()
+        time.sleep(0.2)
+        leftone()
+        time.sleep(0.2)
 # end of main action functions
 
 
@@ -103,10 +122,28 @@ if sys.argv[1] == "mcs":
     in5 = int(sys.argv[5])
     in6 = int(sys.argv[6])
     mcs(in2, in3, in4, in5, in6)
-elif sys.argv[1] == "rand":
+if sys.argv[1] == "rand":
     in2 = int(sys.argv[2])
     randdir(in2)
-elif sys.argv[1] == "diag":
+if sys.argv[1] == "diag":
     in2 = int(sys.argv[2])
     in3 = int(sys.argv[3])
     diag(in2, in3)
+up
+left
+up
+left
+up
+left
+up
+left
+up
+left
+up
+left
+up
+left
+up
+left
+up
+left
