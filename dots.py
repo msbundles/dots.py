@@ -129,21 +129,3 @@ if sys.argv[1] == "diag":
     in2 = int(sys.argv[2])
     in3 = int(sys.argv[3])
     diag(in2, in3)
-up
-left
-up
-left
-up
-left
-up
-left
-up
-left
-up
-left
-up
-left
-up
-left
-up
-left
