@@ -36,6 +36,12 @@ def down(it):
         time.sleep(0.2)
 
 
+def downone():
+    time.sleep(0.2)
+    canvas.send_keys(Keys.DOWN)
+    time.sleep(0.2)
+
+
 def left(it):
     print("left")
     for it in range(1, it):
@@ -57,6 +63,11 @@ def right(it):
         time.sleep(0.2)
 
 
+def rightone():
+    time.sleep(0.2)
+    canvas.send_keys(Keys.RIGHT)
+    time.sleep(0.2)
+
 def space(it, dir):
     for it in range(1, it):
         time.sleep(0.2)
@@ -74,6 +85,9 @@ def randcolor():
 def q(tim):
     time.sleep(tim)
     browser.quit()
+
+
+
 # end of base functions
 
 # main action functions
@@ -109,9 +123,9 @@ def diag(iteration, w):
     space(w, "w")
     for iteration in range(1, iteration):
         upone()
-        time.sleep(0.2)
+        time.sleep(0.1)
         leftone()
-        time.sleep(0.2)
+        time.sleep(0.1)
 # end of main action functions
 
 
