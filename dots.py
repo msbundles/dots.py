@@ -7,61 +7,52 @@ from selenium.webdriver.common.keys import Keys
 browser = webdriver.Firefox()
 type(browser)
 browser.get(
-    'https://msbundles.github.io/Bundles-Personal-Programming-Betterment/p5/1-Dots/')
+    'https://msbundles.github.io/DotDrawer/')
 canvas = browser.find_element_by_tag_name('body')
 type(canvas)
 keyl = [Keys.UP, Keys.DOWN, Keys.LEFT, Keys.RIGHT]
 
 # Base functions
-
-
 def up(it):
     print("up")
-    for it in range(1, it):
+    for it in range(0, it):
         time.sleep(0.2)
         canvas.send_keys(Keys.UP)
         time.sleep(0.2)
-
 
 def upone():
     time.sleep(0.2)
     canvas.send_keys(Keys.UP)
     time.sleep(0.2)
 
-
 def down(it):
-    for it in range(1, it):
+    for it in range(0, it):
         time.sleep(0.2)
         canvas.send_keys(Keys.DOWN)
         time.sleep(0.2)
-
 
 def downone():
     time.sleep(0.2)
     canvas.send_keys(Keys.DOWN)
     time.sleep(0.2)
 
-
 def left(it):
     print("left")
-    for it in range(1, it):
+    for it in range(0, it):
         time.sleep(0.2)
         canvas.send_keys(Keys.LEFT)
         time.sleep(0.2)
-
 
 def leftone():
     time.sleep(0.2)
     canvas.send_keys(Keys.LEFT)
     time.sleep(0.2)
 
-
 def right(it):
-    for it in range(1, it):
+    for it in range(0, it):
         time.sleep(0.2)
         canvas.send_keys(Keys.RIGHT)
         time.sleep(0.2)
-
 
 def rightone():
     time.sleep(0.2)
@@ -69,33 +60,54 @@ def rightone():
     time.sleep(0.2)
 
 def space(it, dir):
-    for it in range(1, it):
+    for it in range(0, it):
         time.sleep(0.2)
         canvas.send_keys(dir)
         time.sleep(0.2)
 
-
 def randcolor():
-    for _ in range(random.randrange(1, 4)):
+    for _ in range(random.randrange(0, 4)):
         time.sleep(0.2)
         canvas.send_keys(2)
         time.sleep(0.2)
 
+def diagl(iteration, w):
+    canvas.click()
+    space(w, "w")
+    for iteration in range(0, iteration):
+        upone()
+        time.sleep(0.1)
+        leftone()
+        time.sleep(0.1)
+
+def diagru(iteration, w):
+    canvas.click()
+    space(w, "w")
+    for iteration in range(0, iteration):
+        upone()
+        time.sleep(0.1)
+        rightone()
+        time.sleep(0.1)
+
+def diagrd(iteration, w):
+    canvas.click()
+    space(w, "w")
+    for iteration in range(0, iteration):
+        downone()
+        time.sleep(0.1)
+        rightone()
+        time.sleep(0.1)
 
 def q(tim):
     time.sleep(tim)
     browser.quit()
 
-
-
 # end of base functions
 
 # main action functions
-
-
 def randdir(iteration):
     canvas.click()
-    for iteration in range(1, iteration):
+    for iteration in range(8, iteration):
         random.shuffle(keyl)
         randnum = random.randint(0, 3)
         time.sleep(0.2)
@@ -103,8 +115,6 @@ def randdir(iteration):
         time.sleep(0.2)
 
 # Multi colored square function
-
-
 def mcs(u, d, l, r, w):
     canvas.click()
     space(w, "w")
@@ -117,18 +127,13 @@ def mcs(u, d, l, r, w):
     randcolor()
     left(l)
 
+def triangle(size, width):
+    space(width,"w")
+    left(size*2)
+    diagru(size,0)
+    diagrd(size,0)
 
-def diag(iteration, w):
-    canvas.click()
-    space(w, "w")
-    for iteration in range(1, iteration):
-        upone()
-        time.sleep(0.1)
-        leftone()
-        time.sleep(0.1)
 # end of main action functions
-
-
 if sys.argv[1] == "mcs":
     in2 = int(sys.argv[2])
     in3 = int(sys.argv[3])
@@ -142,4 +147,8 @@ if sys.argv[1] == "rand":
 if sys.argv[1] == "diag":
     in2 = int(sys.argv[2])
     in3 = int(sys.argv[3])
-    diag(in2, in3)
+    diagru(in2, in3)
+if sys.argv[1] == "tri":
+    in2 = int(sys.argv[2])
+    in3 = int(sys.argv[3])
+    triangle(in2, in3)
