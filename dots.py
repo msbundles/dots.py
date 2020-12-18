@@ -5,11 +5,10 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
 browser = webdriver.Firefox()
-type(browser)
 browser.get('https://msbundles.github.io/DotDrawer/')
 canvas = browser.find_element_by_tag_name('body')
-type(canvas)
-keyl = [Keys.UP, Keys.DOWN, Keys.LEFT, Keys.RIGHT]
+# The list of arrow keys to be used in randomization.
+keylist = [Keys.UP, Keys.DOWN, Keys.LEFT, Keys.RIGHT]
 
 # Base functions
 
@@ -43,9 +42,9 @@ def right(it):
         canvas.send_keys(Keys.RIGHT)
         time.sleep(0.2)
 
-# Change the distance between the dots
-# dir is either "w" or "s" and it is the
-# number of iterations
+# Change the distance between the dots dir is either "w" or "s" and it
+# is the number of iterations. "w" is an increase in space and "s" is
+# a decrease in space.
 def space(it, dir):
     for it in range(0, it):
         time.sleep(0.2)
@@ -89,23 +88,16 @@ def diagdr(iteration, w):
         right(1)
         time.sleep(0.1)
 
-# Sleep for a specified time and then quit out of the browser
-def q(tim):
-    time.sleep(tim)
-    browser.quit()
-
-# end of base functions
-
-# main action functions
+# Main action functions
 
 # Place dots in random directions
 def randomdir(iteration):
     canvas.click()
     for iteration in range(8, iteration):
-        random.shuffle(keyl)
+        random.shuffle(keylist)
         randnum = random.randint(0, 3)
         time.sleep(0.2)
-        canvas.send_keys(keyl[randnum])
+        canvas.send_keys(keylist[randnum])
         time.sleep(0.2)
 
 # Draw a multicolored square
@@ -128,23 +120,13 @@ def triangle(size, width):
     diagur(size,0)
     diagdr(size,0)
 
-# end of main action functions
+# Taking command line arguments
 if sys.argv[1] == "mcs":
-    in2 = int(sys.argv[2])
-    in3 = int(sys.argv[3])
-    in4 = int(sys.argv[4])
-    in5 = int(sys.argv[5])
-    in6 = int(sys.argv[6])
-    mcs(in2, in3, in4, in5, in6)
+    mcs(int(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4]), int(sys.argv[5]), int(sys.argv[6]))
 if sys.argv[1] == "rand":
-    in2 = int(sys.argv[2])
-    randomdir(in2)
+    randomdir(int(sys.argv[2]))        
 if sys.argv[1] == "diag":
-    in2 = int(sys.argv[2])
-    in3 = int(sys.argv[3])
-    diagur(in2, in3)
+    diagur(int(sys.argv[2]), int(sys.argv[3]))
 if sys.argv[1] == "tri":
-    in2 = int(sys.argv[2])
-    in3 = int(sys.argv[3])
-    triangle(in2, in3)
+    triangle(int(sys.argv[2]), int(sys.argv[3]))
 
